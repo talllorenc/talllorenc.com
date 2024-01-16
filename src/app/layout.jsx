@@ -17,10 +17,8 @@ export default function RootLayout({children}) {
             <link rel="shortcut icon" href="/favicon/favicon.ico"/>
         </head>
         <body className={`${montserrat.className}`}>
-        <div className="main_container">
             <Navbar/>
             {children}
-        </div>
         </body>
         </html>
     );

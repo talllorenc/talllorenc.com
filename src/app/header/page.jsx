@@ -1,9 +1,10 @@
 import Image from "next/image";
 import Link from "next/link";
+import LatestBeat from "@/components/LatestBeat";
 
 const HeaderPage = () => {
   return (
-    <div className="h-screen flex items-center container justify-between">
+    <div className="h-screen flex items-center justify-between gap-4 container mx-auto">
       <div className="flex flex-col font-bold gap-5 w-[70%]">
         <div className="flex flex-col">
           <span className="text-6xl">Welcome everyone, I am</span>
@@ -28,10 +29,8 @@ const HeaderPage = () => {
           </Link>
         </div>
       </div>
-      <div className="w-[50%]">
-        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Cumque qui
-        numquam quos ut rem minima eaque eveniet corrupti impedit, hic ex iusto
-        quisquam magnam doloremque provident suscipit adipisci quae maiores.
+      <div className="w-[30%]">
+        <LatestBeat/>
       </div>
     </div>
   );
