@@ -4,7 +4,7 @@ import LatestBeat from "@/components/LatestBeat";
 
 const HeaderPage = () => {
   return (
-    <div className="h-screen flex items-center justify-between gap-4 container mx-auto overflow-hidden">
+    <div className="flex items-center justify-between gap-4 container mt-80 overflow-hidden">
       <div className="flex flex-col font-bold gap-5 w-[70%] ">
         <div className="flex flex-col ">
           <span className="text-6xl">Welcome everyone, I am</span>
