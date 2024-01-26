@@ -1,6 +1,7 @@
 import HeaderPage from "@/app/header/page";
 import BeatsSection from "./beatsSection/page";
 import SocialsLinks from "@/components/SocialsLinks/SocialsLinks";
+import LicensingPage from "./licensing/page";
 
 export default function Home() {
     return (
@@ -8,6 +9,7 @@ export default function Home() {
             <HeaderPage/>
             <SocialsLinks/>
             <BeatsSection/>
+            <LicensingPage/>
         </div>
     )
 }
