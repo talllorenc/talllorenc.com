@@ -4,13 +4,16 @@ import Link from "next/link";
 
 const BeatsSection = () => {
   return (
-    <div className="container mt-16">
+    <div className="mt-10">
+    <div className="container">
       <span className="text-5xl font-medium flex items-center justify-center">Beats</span>
       <div className='flex flex-col mt-8'>
         <Beats />
         <Link href="/playlist" className="mx-auto font-medium border-2 border-[#f75380] bg-[#f75380] py-1 px-2 rounded-full hover:border-white">ALL BEATS</Link>
       </div>
     </div>
+    </div>
+
   );
 };
 

@@ -1,11 +1,12 @@
 import Image from "next/image";
 import Link from "next/link";
 import LatestBeat from "@/components/LatestBeat";
+import GlobalSearch from "@/components/GlobalSearch/GlobalSearch";
 
 const HeaderPage = () => {
   return (
-    <div className="flex items-center justify-between gap-4 container mt-80 overflow-hidden">
-      <div className="flex flex-col font-bold gap-5 w-[70%] ">
+    <div className="flex container">
+      <div className="flex flex-col font-bold gap-5">
         <div className="flex flex-col ">
           <span className="text-6xl">Welcome everyone, I am</span>
           <span className="text-[#F75380] text-6xl">talllorenc</span>
@@ -28,9 +29,7 @@ const HeaderPage = () => {
             Contacts
           </Link>
         </div>
-      </div>
-      <div className="w-[30%]">
-        {/* <LatestBeat/> */}
+        <GlobalSearch/>
       </div>
     </div>
   );
