@@ -4,7 +4,7 @@ import Image from "next/image";
 const Beats = () => {
   return (
     <div className="flex">
-      <div className="flex flex-col border border-black rounded-md max-w-[227px] p-4 hover:border-[#2c2b2b] hover:bg-[#1c1b1b]">
+      <div className="flex flex-col border border-[#151719] rounded-md max-w-[227px] p-4 hover:border-[#2c2b2b] hover:bg-[#3c3b3b]">
         <Image
           src="/test2.jpeg"
           alt="beat cover"

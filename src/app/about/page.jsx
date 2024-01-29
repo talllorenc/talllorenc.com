@@ -1,7 +1,7 @@
 "use client"
 
 const AboutPage = () => (
-  <div className="mt-12">
+  <div className="">
       <h1>About</h1>
   </div>
 );

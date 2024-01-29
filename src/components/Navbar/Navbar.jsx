@@ -3,9 +3,9 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import Image from "next/image";
-import SigninButton from "@/components/SigninButton/SigninButton";
 import { useState } from "react";
 import Popup from "@/components/Popup/Popup";
+import useAuth from "@/hooks/isAuth";
 
 const links = [
   {
@@ -26,6 +26,7 @@ const links = [
 ];
 
 const Navbar = () => {
+  const { currentUser, logout } = useAuth();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isPopupOpen, setIsPopupOpen] = useState(false);
   const pathname = usePathname();
@@ -94,12 +95,17 @@ const Navbar = () => {
                 />
               </button>
             </div>
-            <button
-              onClick={togglePopup}
-              className="border-[2px] border-[#A11B3F] rounded-lg p-1 hover:border-[#F75380]"
-            >
-              Sign in
-            </button>
+
+            {currentUser ? (
+              <p>{currentUser.login}!</p>
+            ) : (
+              <button
+                onClick={togglePopup}
+                className="border-[2px] border-[#A11B3F] rounded-lg p-1 hover:border-[#F75380]"
+              >
+                Sign in
+              </button>
+            )}
           </div>
         </div>
         <div className="hidden in:flex gap-[15px] items-center">
@@ -118,7 +124,7 @@ const Navbar = () => {
               </Link>
             ))}
           </div>
-          <div className="flex gap-4">
+          <div className="flex gap-4 items-center">
             <button className="flex items-center border-[2px] border-orange-600 rounded-lg p-1 hover:bg-orange-600">
               <Image
                 src="/navbar/dolar.png"
@@ -128,12 +134,21 @@ const Navbar = () => {
               />
             </button>
 
-            <button
-              onClick={togglePopup}
-              className="bg-[#F75380] border-[2px] border-[#3c3b3b] rounded-lg py-1 px-2 font-bold transition-transform transform hover:translate-y-[-3px] focus:outline-none"
-            >
-              Sign in
-            </button>
+            {currentUser ? (
+              <div className="flex items-center border-[2px] border-[#F75380] rounded-lg cursor-pointer ">
+                <span className="px-2 max-w-[91px] overflow-hidden overflow-ellipsis whitespace-nowrap">{currentUser.login}</span>
+                <button onClick={logout} className="border-l-2 border-[#8c8b8b] py-1 px-2 hover:bg-red-500">
+                  <Image src="/navbar/logout.png" width={20} height={20} alt="logout image"/>
+                </button>
+              </div>
+            ) : (
+              <button
+                onClick={togglePopup}
+                className="bg-[#F75380] border-[2px] border-[#3c3b3b] rounded-lg py-1 px-2 font-bold transition-transform transform hover:translate-y-[-3px] focus:outline-none"
+              >
+                Sign in
+              </button>
+            )}
           </div>
         </div>
         <Popup closePopup={closePopup} isPopupOpen={isPopupOpen} />

@@ -56,11 +56,11 @@ const licensing = [
 ];
 
 const LicensingPage = () => (
-  <div className="bg-[#141414] w-full p-16 mt-12">
+  <div className="bg-black w-full p-16 mt-16">
     <span className="text-5xl font-medium flex items-center justify-center">
       Licensing Info
     </span>
-    <div className="mt-12 container mx-auto flex w-full gap-8">
+    <div className="max-w-[1366px] mx-auto flex gap-8 mt-8">
       {licensing.map((item) => (
         <div key={item.id} className="flex-1 w-[25%]">
           <div className="border-2 border-[#f75380] rounded-lg ">

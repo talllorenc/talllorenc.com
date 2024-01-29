@@ -4,7 +4,7 @@ import Link from "next/link";
 
 const BeatsSection = () => {
   return (
-    <div className="mt-10">
+    <div className="mt-16">
     <div className="container">
       <span className="text-5xl font-medium flex items-center justify-center">Beats</span>
       <div className='flex flex-col mt-8'>

@@ -28,9 +28,37 @@ const basicSchema = yup.object().shape({
         .required("! Required field"),
 });
 
-const onSubmit = async (values) => {
-    console.log("done");
-};
+const onSubmit = async (values, actions) => {
+    try {
+      const response = await fetch('http://localhost:8080/auth/register', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          login: values.login,
+          name: values.name,
+          position: values.position,
+          password: values.password,
+        }),
+      });
+  
+      if (!response.ok) {
+        const errorData = await response.json();
+        console.error('Ошибка регистрации:', errorData.message);
+        return;
+      }
+  
+      const userData = await response.json();
+  
+      localStorage.setItem('token', userData.token);
+      localStorage.setItem('user', JSON.stringify(userData));
+  
+    } catch (error) {
+      console.error('Ошибка:', error);
+    }
+  };
+
 const RegisterForm = () => {
     const {values, handleChange, touched, handleBlur, handleSubmit, errors} =
         useFormik({
