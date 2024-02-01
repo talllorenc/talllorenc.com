@@ -12,7 +12,8 @@ export const fetchBeats = createAsyncThunk('beats/fetchBeats', async () => {
     const data = await response.json();
     return data;
   } catch (error) {
-    console.error("Ошибка:", error);
+    console.error("Error:", error);
+    throw error;
   }
 });
 
