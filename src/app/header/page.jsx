@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import LatestBeat from "@/components/LatestBeat";
 import GlobalSearch from "@/components/GlobalSearch/GlobalSearch";
+import SocialsLinks from "@/components/SocialsLinks/SocialsLinks";
 
 const HeaderPage = () => {
   return (
@@ -9,7 +10,8 @@ const HeaderPage = () => {
       <div className="flex container ">
         <div className="flex flex-col font-bold gap-5 mt-48">
           <div className="flex flex-col ">
-            <span className="text-6xl">Welcome everyone, I am</span>
+            <SocialsLinks/>
+            <span className="text-6xl mt-2">Welcome everyone, I am</span>
             <span className="text-[#F75380] text-6xl">talllorenc</span>
             <span className="text-lg font-medium mt-2">
               This site contains all my works. Enjoy listening..
