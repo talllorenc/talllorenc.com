@@ -14,7 +14,6 @@ const Beats = () => {
   const { beats, tags } = useSelector((state) => state.beats);
 
   const isBeatsLoading = beats.status === "loading";
-  const isBeatsError = beats.status === "error";
 
   useEffect(() => {
     dispatch(fetchBeats());
@@ -23,7 +22,6 @@ const Beats = () => {
 
   return (
     <div className="flex flex-wrap justify-around">
-      {isBeatsError && <SkeletonError/>}
       {(isBeatsLoading ? [...Array(5)] : beats.items || []).map((obj, index) =>
         isBeatsLoading ? (
           <SkeletonBeat key={index} />

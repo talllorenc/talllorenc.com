@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 
 const reloadPage = () => {
     window.location.reload();
@@ -6,15 +7,16 @@ const reloadPage = () => {
 
 const SkeletonError = () => {
   return (
-    <div className="flex flex-col items-center p-4 border-2 rounded-xl border-[#eb4343]">
+    <div className="flex flex-col items-center">
       <div className="flex flex-col items-center">
-        <Image src="/skeletonError/error-page.png" width={80} height={80} alt="error image"/>
+        {/* <Image src="/skeletonError/error-page.png" width={80} height={80} alt="error image"/> */}
+        <span className="text-8xl">OOPS!</span>
         <span className="text-3xl text-[#eb4343] font-medium">Something went wrong</span>
       </div>
       <span className="text-lg text-[#9c9b9b]">Error loading beats. Please try again later.</span>
-      <div className="flex flex-col text-md font-medium py-1 px-4 border-2 border-[#4169e1] bg-[#4169e1] rounded-xl mt-2 transition duration-300 ease-in-out hover:border-white">
-        <button onClick={reloadPage}>Reload page</button>
-
+      <div className="flex gap-4 items-center">
+        <button className="text-md font-medium py-1 px-8 mt-4 border-2 border-[#4169e1] bg-[#4169e1] rounded-xl mt-2 transition duration-300 ease-in-out hover:border-white" onClick={reloadPage}>Reload page</button>
+        <Link href="/playlist" className="text-md font-medium py-1 px-8 mt-4 border-2 border-[#f75380] bg-[#f75380] rounded-xl mt-2 transition duration-300 ease-in-out hover:border-white">Playlist</Link>
       </div>
     </div>
   );
