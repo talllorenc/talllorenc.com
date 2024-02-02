@@ -24,7 +24,7 @@ const HeaderPage = () => {
               Playlist
             </Link>
             <Link
-              href="/contacts"
+              href="/about"
               className="px-3 py-1 border-2 rounded-full transition duration-300 ease-in-out hover:bg-[#F75380] hover:border-[#F75380]"
             >
               Contacts
