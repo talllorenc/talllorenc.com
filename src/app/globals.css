@@ -63,7 +63,6 @@ a {
   background-position: center;
 }
 
-
 @keyframes skeletonWave {
   0%, 100% {
     transform: scale(1);
