@@ -5,14 +5,14 @@ const AboutPage = () => {
     <div className="mt-12">
       <section className="overflow-hidden container">
         <span className="text-5xl font-medium">About me</span>
-        <div className="relative mx-auto max-w-7xl px-4 pt-20 pb-12 sm:px-6 lg:px-8 lg:py-20">
+        <div className="relative mx-auto max-w-7xl pt-4 sm:px-6 lg:px-8 lg:py-20">
           <div className="relative lg:flex lg:items-center">
             <div className="hidden lg:block lg:flex-shrink-0">
               <Image
                 src="/about/me.jpg"
                 className="rounded-full xl:h-60 xl:w-60"
-                width={200}
-                height={200}
+                width={250}
+                height={250}
                 alt="profile img"
               />
             </div>
