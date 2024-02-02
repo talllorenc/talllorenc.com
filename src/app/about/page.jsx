@@ -22,8 +22,8 @@ const AboutPage = () => {
                 <div className="text-2xl font-medium leading-9 text-white">
                   <p>
                     My name is talllorenc and I really hope that everyone will
-                    find something for themselves in this place. I've been doing
-                    music for 5 years now, but I'm not doing it at the moment.
+                    find something for themselves in this place. I have been doing
+                    music for 5 years now, but I am not doing it at the moment.
                     Here are my experiences and thoughts for the last 5 years
                     and I would really like to share it with you
                   </p>
