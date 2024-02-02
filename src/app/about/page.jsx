@@ -20,7 +20,7 @@ const AboutPage = () => {
             <div className="relative lg:ml-10">
               <blockquote className="relative">
                 <div className="text-2xl font-medium leading-9 text-white">
-                  <p>
+                  <p className="text-[#9c9b9b]">
                     My name is talllorenc and I really hope that everyone will
                     find something for themselves in this place. I have been doing
                     music for 5 years now, but I am not doing it at the moment.

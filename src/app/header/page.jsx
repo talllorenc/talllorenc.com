@@ -4,9 +4,9 @@ import SocialsLinks from "@/components/SocialsLinks/SocialsLinks";
 
 const HeaderPage = () => {
   return (
-    <div className="header-bg w-full in:h-screen">
+    <div className="header-bg w-full">
       <div className="flex container ">
-        <div className="flex flex-col font-bold gap-5 mt-24 mb-24 in:mt-56">
+        <div className="flex flex-col font-bold gap-5 mt-24 mb-24 in:mt-40">
           <div className="flex flex-col ">
             <SocialsLinks/>
             <span className="text-4xl in:text-6xl mt-2">Welcome everyone, I am</span>

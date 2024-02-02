@@ -30,10 +30,10 @@ const MobileNavbar = ({ isMenuOpen, closeMenu, togglePopup }) => {
       {isMenuOpen && (
         <motion.div
           className="fixed top-0 left-0 w-full h-screen bg-[#1c1b1b] bg-opacity-70 flex"
-          initial={{ opacity: 0, x: "100%" }}
-          animate={{ opacity: 1, x: 0 }}
-          exit={{ opacity: 0, x: "100%" }}
-          transition={{ duration: 0.3 }}
+          initial={{opacity: 0}}
+          animate={{opacity: 1}}
+          exit={{opacity: 0}}
+          transition={{duration: 0.15}}
           onClick={closeMenu}
         >
           <motion.div
@@ -50,7 +50,7 @@ const MobileNavbar = ({ isMenuOpen, closeMenu, togglePopup }) => {
                   className="flex border font-medium border-[#8c8b8b] bg-[#3c3b3b] p-1 rounded-lg ml-auto"
                   onClick={closeMenu}
                 >
-                  Close
+                  Esc
                 </button>
               </div>
 
