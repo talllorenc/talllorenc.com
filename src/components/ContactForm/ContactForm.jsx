@@ -25,6 +25,7 @@ const ContactForm = () => {
   const [sending, setSending] = useState(false);
   const [error, setError] = useState(false);
   const [success, setSuccess] = useState(false);
+  const [captchaError, setCaptchaError] = useState(true);
 
   const {
     values,
@@ -48,10 +49,12 @@ const ContactForm = () => {
 
       if (!recaptchaValue) {
         setSending(false);
-        console.error("Please complete the reCAPTCHA challenge.");
+        setError(false);
+        setSuccess(false);
+        setCaptchaError(true);
         return;
       }
-      
+
       emailjs
         .sendForm(
           "service_lyiw33m",
@@ -199,7 +202,7 @@ const ContactForm = () => {
             <ReCAPTCHA
               sitekey="6LdnSWQpAAAAALUyIfCA2c8yvFBW_wP0MK1FtkBB"
               onChange={(value) => {
-                console.log("Captcha value:", value);
+                setCaptchaError(false);
               }}
             />
             <div className="flex justify-between">
@@ -225,6 +228,11 @@ const ContactForm = () => {
             </div>
           </form>
           <div className="flex items-center justify-center mt-4">
+            {captchaError ? (
+              <p className="flex gap-1 items-center text-red-600 dark:text-red-500 py-1 px-2 w-fit text-lg rounded-md bg-red-100 dark:bg-red-950 border border-red-600 dark:border-red-500">
+                Go through the captcha, please
+              </p>
+            ) : null}
             {success && !sending ? (
               <p className="flex gap-1 items-center text-green-600 dark:text-green-500 py-1 px-2 w-fit text-lg rounded-md bg-green-100 dark:bg-green-950 border border-green-600 dark:border-green-500">
                 The message has been sent successfully
