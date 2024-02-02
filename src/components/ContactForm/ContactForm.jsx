@@ -25,7 +25,7 @@ const ContactForm = () => {
   const [sending, setSending] = useState(false);
   const [error, setError] = useState(false);
   const [success, setSuccess] = useState(false);
-  const [captchaError, setCaptchaError] = useState(true);
+  const [captchaError, setCaptchaError] = useState(false);
 
   const {
     values,
