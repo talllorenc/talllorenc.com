@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import emailjs from "@emailjs/browser";
 import * as yup from "yup";
 import { useFormik } from "formik";
@@ -88,7 +89,11 @@ const ContactForm = () => {
             find up-to-date information about releases
           </span>
           <div className="flex flex-col in:flex-row gap-4 mt-8">
-            <div className="flex items-center gap-2 border-2 border-[#4c4b4b] hover:border-white hover:scale-110 transition duration-300 ease-in-out p-3 rounded-lg cursor-pointer">
+            <a
+              target="_blank"
+              href="https://www.instagram.com/tellmynumber/"
+              className="flex items-center gap-2 border-2 border-[#4c4b4b] hover:border-white hover:scale-110 transition duration-300 ease-in-out p-3 rounded-lg cursor-pointer"
+            >
               <Image
                 src="/SocialsLinks/icon-instagram.png"
                 width={30}
@@ -96,8 +101,12 @@ const ContactForm = () => {
                 alt="instagram image"
               />
               <span>Instagram</span>
-            </div>
-            <div className="flex items-center gap-2 border-2 border-[#4c4b4b] hover:border-white hover:scale-110 transition duration-300 ease-in-out p-3 rounded-lg cursor-pointer">
+            </a>
+            <a
+              target="_blank"
+              href="https://soundcloud.com/talllorenc"
+              className="flex items-center gap-2 border-2 border-[#4c4b4b] hover:border-white hover:scale-110 transition duration-300 ease-in-out p-3 rounded-lg cursor-pointer"
+            >
               <Image
                 src="/SocialsLinks/icon-soundcloud.png"
                 width={30}
@@ -105,8 +114,12 @@ const ContactForm = () => {
                 alt="soundcloud image"
               />
               <span>SoundCloud</span>
-            </div>
-            <div className="flex items-center gap-2 border-2 border-[#4c4b4b] hover:border-white hover:scale-110 transition duration-300 ease-in-out p-3 rounded-lg cursor-pointer">
+            </a>
+            <a
+              target="_blank"
+              href="#"
+              className="flex items-center gap-2 border-2 border-[#4c4b4b] hover:border-white hover:scale-110 transition duration-300 ease-in-out p-3 rounded-lg cursor-pointer"
+            >
               <Image
                 src="/SocialsLinks/icon-youtube.png"
                 width={30}
@@ -114,7 +127,7 @@ const ContactForm = () => {
                 alt="youtube image"
               />
               <span>YouTube</span>
-            </div>
+            </a>
           </div>
         </div>
         <div className="w-full">
@@ -205,7 +218,7 @@ const ContactForm = () => {
                 setCaptchaError(false);
               }}
             />
-            <div className="flex justify-between">
+            <div className="flex justify-between items-center">
               <div>
                 <span className="text-red-600 text-lg mr-1">*</span>- required
                 fields
