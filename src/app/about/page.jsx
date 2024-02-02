@@ -1,9 +1,7 @@
-"use client"
+"use client";
 
-const AboutPage = () => (
-  <div className="">
-      <h1>About</h1>
-  </div>
-);
+const AboutPage = () => {
+  return <div>About page</div>;
+};
 
 export default AboutPage;

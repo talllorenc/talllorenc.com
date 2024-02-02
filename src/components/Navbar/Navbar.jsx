@@ -1,10 +1,11 @@
 "use client";
 
 import Link from "next/link";
-import {usePathname} from "next/navigation";
+import { usePathname } from "next/navigation";
 import Image from "next/image";
-import {useState} from "react";
+import { useState } from "react";
 import Popup from "@/components/Popup/Popup";
+import MobileNavbar from "../MobileNavbar/MobileNavbar";
 
 const links = [
   {
@@ -33,16 +34,16 @@ const Navbar = () => {
     setIsMenuOpen(!isMenuOpen);
   };
 
-  const closeMenu = () => {
-    setIsMenuOpen(false);
-  };
-
   const togglePopup = () => {
     setIsPopupOpen(!isPopupOpen);
   };
 
   const closePopup = () => {
     setIsPopupOpen(false);
+  };
+
+  const closeMenu = () => {
+    setIsMenuOpen(false);
   };
 
   return (
@@ -60,47 +61,7 @@ const Navbar = () => {
               alt="Menu"
             />
           </button>
-        </div>
-        <div
-          className={`${
-            isMenuOpen ? "flex flex-col" : "hidden"
-          } items-center justify-center top-full left-0 w-full absolute bg-black backdrop-blur in:hidden`}
-        >
-          <div className="flex flex-col in:flex-row gap-[20px] items-center p-4 in:p-0">
-            {links.map((link) => (
-              <Link key={link.id} href={link.url}>
-                <span
-                  onClick={closeMenu}
-                  className={`hover:text-[#9C9C9C] ${
-                    pathname === link.url
-                      ? "border-b-2 border-[#F75380] text-[#9C9C9C]"
-                      : ""
-                  }`}
-                >
-                  {link.title}
-                </span>
-              </Link>
-            ))}
-          </div>
-          <div className="flex gap-4 mb-4">
-            <div>
-              <button
-                className="flex items-center border-[2px] border-orange-600 rounded-lg gap-1 p-1 hover:border-orange-500">
-                <Image
-                  src="/navbar/dolar.png"
-                  width={24}
-                  height={24}
-                  alt="tips icon"
-                />
-              </button>
-            </div>
-            <button
-              onClick={togglePopup}
-              className="border-[2px] border-[#A11B3F] rounded-lg p-1 hover:border-[#F75380]"
-            >
-              Sign in
-            </button>
-          </div>
+          <MobileNavbar isMenuOpen={isMenuOpen} closeMenu={closeMenu} togglePopup={togglePopup}/>
         </div>
         <div className="hidden in:flex gap-[15px] items-center">
           <div className="flex gap-[20px] items-center">
@@ -119,8 +80,7 @@ const Navbar = () => {
             ))}
           </div>
           <div className="flex gap-4 items-center">
-            <button
-              className="flex items-center border-[2px] border-orange-600 rounded-lg p-1 hover:bg-orange-600">
+            <button className="flex items-center border-[2px] border-orange-600 rounded-lg p-1 hover:bg-orange-600">
               <Image
                 src="/navbar/dolar.png"
                 width={24}
@@ -128,7 +88,6 @@ const Navbar = () => {
                 alt="tips icon"
               />
             </button>
-
 
             <button
               onClick={togglePopup}
@@ -138,7 +97,7 @@ const Navbar = () => {
             </button>
           </div>
         </div>
-        <Popup closePopup={closePopup} isPopupOpen={isPopupOpen}/>
+        <Popup closePopup={closePopup} isPopupOpen={isPopupOpen} />
       </div>
     </nav>
   );

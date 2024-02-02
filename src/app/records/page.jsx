@@ -1,7 +1,10 @@
 "use client"
 
-const RecordsPage = () => (
-  <div className="mt-12">Records Page</div>
-);
+const RecordsPage = () => {
+  return (
+    <div>Records Page</div>
+  )
+}
 
 export default RecordsPage;
+

@@ -34,7 +34,7 @@ const links = [
   {
     id: 3,
     title: "Records",
-    url: "/recordsPage",
+    url: "/records",
   },
 ];
 const Footer = () => {

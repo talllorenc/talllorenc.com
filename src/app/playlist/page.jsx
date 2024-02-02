@@ -1,7 +1,7 @@
-"use client"
+"use client";
 
-const PlaylistPage = () => (
-    <div className="mt-12">Playlist</div>
-);
+const PlaylistPage = () => {
+  return <div>Playlist Page</div>;
+};
 
 export default PlaylistPage;
