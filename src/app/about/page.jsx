@@ -1,6 +1,5 @@
 import ContactForm from "@/components/ContactForm/ContactForm";
-import React, { useContext } from "react";
-
+import Image from "next/image";
 const AboutPage = () => {
   return (
     <div className="mt-12">
@@ -9,9 +8,11 @@ const AboutPage = () => {
         <div className="relative mx-auto max-w-7xl px-4 pt-20 pb-12 sm:px-6 lg:px-8 lg:py-20">
           <div className="relative lg:flex lg:items-center">
             <div className="hidden lg:block lg:flex-shrink-0">
-              <img
-                className="h-64 w-64 rounded-full xl:h-60 xl:w-60"
+              <Image
                 src="/about/me.jpg"
+                className="rounded-full xl:h-60 xl:w-60"
+                width={200}
+                height={200}
                 alt="profile img"
               />
             </div>
