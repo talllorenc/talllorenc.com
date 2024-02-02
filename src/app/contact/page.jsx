@@ -1,9 +1,10 @@
+import ContactForm from "@/components/ContactForm/ContactForm"
 
 const ContactPage = () => {
   return (
-    <div>
-        <div className="container">
-            <span className="flex justify-center text-5xl font-medium py-8">Contact</span>
+    <div className="py-8">
+        <div className="container flex flex-col ">
+            <ContactForm/>
         </div>
     </div>
   )

@@ -113,7 +113,7 @@ const RegisterForm = () => {
                         value={values.login}
                         onChange={handleChange}
                     />
-                    <label form="login" className="text-xs text-[#8c8b8b]">
+                    <label for="login" className="text-xs text-[#8c8b8b]">
                         <span className="text-red-600 text-lg mr-1">*</span>
                         Login length is at least 6 characters
                     </label>
@@ -138,7 +138,7 @@ const RegisterForm = () => {
                         value={values.password}
                         onChange={handleChange}
                     />
-                    <label form="password" className="text-xs text-[#8c8b8b]">
+                    <label for="password" className="text-xs text-[#8c8b8b]">
                         <span className="text-red-600 text-lg mr-1">*</span>
                         Minimum 6 characters and a special character
                     </label>
@@ -163,7 +163,7 @@ const RegisterForm = () => {
                         value={values.confirmPassword}
                         onChange={handleChange}
                     />
-                    <label form="password" className="text-xs text-[#8c8b8b]">
+                    <label for="password" className="text-xs text-[#8c8b8b]">
                         <span className="text-red-600 text-lg mr-1">*</span>
                         Please remember the password
                     </label>

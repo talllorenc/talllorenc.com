@@ -1,6 +1,4 @@
-import Image from "next/image";
 import Link from "next/link";
-import LatestBeat from "@/components/LatestBeat";
 import GlobalSearch from "@/components/GlobalSearch/GlobalSearch";
 import SocialsLinks from "@/components/SocialsLinks/SocialsLinks";
 
