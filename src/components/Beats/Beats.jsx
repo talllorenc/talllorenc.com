@@ -1,13 +1,11 @@
 "use client"
 
-// Beats.jsx
-
 import { useEffect } from "react";
 import Image from "next/image";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchBeats } from "@/redux/slices/beats";
 import SkeletonBeat from "@/components/SkeletonBeat/SkeletonBeat";
-import SkeletonError from "../SkeletonError/SkeletonError";
+import Link from "next/link";
 
 const Beats = () => {
   const dispatch = useDispatch();
@@ -52,8 +50,7 @@ const Beats = () => {
                 </div>
               </div>
               <div>
-                <span></span>
-                <span className="font-bold text-xl">{obj.title}</span>
+                <Link href={`beatsSection/${obj._id}`} className="font-bold text-xl">{obj.title}</Link>
               </div>
             </div>
           </div>

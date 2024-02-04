@@ -158,7 +158,7 @@ const ContactForm = () => {
                 onBlur={handleBlur}
                 value={values.name}
               />
-              <label for="name" className="text-xs text-[#8c8b8b]">
+              <label htmlFor="name" className="text-xs text-[#8c8b8b]">
                 <span className="text-red-600 text-lg mr-1">*</span>
                 Maximum 15 characters
               </label>
@@ -183,7 +183,7 @@ const ContactForm = () => {
                 onBlur={handleBlur}
                 value={values.email}
               />
-              <label for="email" className="text-xs text-[#8c8b8b]">
+              <label htmlFor="email" className="text-xs text-[#8c8b8b]">
                 <span className="text-red-600 text-lg mr-1">*</span>
                 Required field
               </label>
@@ -207,7 +207,7 @@ const ContactForm = () => {
                 onBlur={handleBlur}
                 value={values.message}
               ></textarea>
-              <label for="message" className="text-xs text-[#8c8b8b]">
+              <label htmlFor="message" className="text-xs text-[#8c8b8b]">
                 <span className="text-red-600 text-lg mr-1">*</span>
                 Required field
               </label>

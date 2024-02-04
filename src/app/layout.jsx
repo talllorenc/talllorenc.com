@@ -7,6 +7,7 @@ import Footer from "@/components/Footer/Footer";
 import { Provider } from "react-redux";
 
 import store from "../redux/store";
+import Providers from "@/components/GoogleAuth/Providers";
 
 const montserrat = Montserrat({
   weight: ["300", "400", "500", "700"],
@@ -22,11 +23,13 @@ export default function RootLayout({ children }) {
         <link rel="shortcut icon" href="/favicon/favicon.ico" />
       </head>
       <body className={`${montserrat.className}`}>
+      <Providers>
         <Provider store={store}>
           <Navbar />
           {children}
           <Footer />
         </Provider>
+      </Providers>
       </body>
     </html>
   );

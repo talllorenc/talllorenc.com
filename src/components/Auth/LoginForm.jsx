@@ -12,26 +12,7 @@ const basicSchema = yup.object().shape({
 
 const onSubmit = async (values) => {
   try {
-    const response = await fetch("http://localhost:8080/auth/login", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        login: values.login,
-        password: values.password,
-      }),
-    });
 
-    if (!response.ok) {
-      const errorData = await response.json();
-      console.error("Ошибка авторизации:", errorData.message);
-      return;
-    }
-
-    const userData = await response.json();
-
-    localStorage.setItem("token", userData.token);
   } catch (error) {
     console.error("Ошибка:", error);
   }

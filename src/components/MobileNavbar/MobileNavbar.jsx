@@ -1,8 +1,9 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import Image from "next/image";
-import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import {useSession, signOut, signIn} from "next-auth/react";
+import React from "react";
 
 const links = [
   {
@@ -24,6 +25,7 @@ const links = [
 
 const MobileNavbar = ({ isMenuOpen, closeMenu, togglePopup }) => {
   const pathname = usePathname();
+  const {data: session} = useSession();
 
   return (
     <AnimatePresence>
@@ -89,12 +91,23 @@ const MobileNavbar = ({ isMenuOpen, closeMenu, togglePopup }) => {
                   />
                 </button>
               </div>
-              <button
-                className="border-[2px] border-[#A11B3F] rounded-lg p-1 hover:border-[#F75380]"
-                onClick={togglePopup}
-              >
-                Sign in
-              </button>
+              {session && session.user ? (
+                <div className="flex gap-1 items-center">
+                  <p
+                    className="border-l-[2px] px-[10px] max-w-[100px] overflow-hidden whitespace-nowrap overflow-ellipsis">
+                    {session.user.name}
+                  </p>
+                  <button onClick={() => signOut()} className="flex rounded hover:bg-red-600">
+                    <Image src="/navbar/logout.png" width={20} height={20} alt="logout icon"/>
+                  </button>
+                </div>
+              ) : (
+                <button
+                  onClick={togglePopup}
+                  className="bg-[#F75380] border-[2px] border-[#3c3b3b] rounded-lg py-1 px-2 font-bold transition-transform transform hover:translate-y-[-3px] focus:outline-none"
+                >
+                  Sign in
+                </button>)}
             </div>
           </motion.div>
         </motion.div>
