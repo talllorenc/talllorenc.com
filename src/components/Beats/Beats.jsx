@@ -37,10 +37,10 @@ const Beats = () => {
             />
             <div className="text-md mt-4">
               <div className="flex gap-2 items-center">
-                <span className="text-[#F75380]">${obj.price}</span>
+                <span className="text-[#F75380] text-lg font-medium">${obj.price}</span>
                 <span className="text-[#9f9f9f]">●</span>
-                <span className="text-[#9f9f9f]">{obj.bpm} BPM</span>
-                <div className="flex items-center gap-1 px-2 bg-[#F75380] border border-[#F75380] rounded-full hover:border-white">
+                <span className="text-[#9f9f9f] text-lg font-medium">{obj.bpm} BPM</span>
+                <div className="flex items-center gap-1 py-1 px-3 bg-[#F75380] border border-[#F75380] rounded-full hover:border-white">
                   <Image
                     src="/header/download.png"
                     width={18}
@@ -50,7 +50,7 @@ const Beats = () => {
                 </div>
               </div>
               <div>
-                <Link href={`beatsSection/${obj._id}`} className="font-bold text-xl">{obj.title}</Link>
+                <Link href={`beatsSection/${obj._id}`} className="font-bold text-xl hover:text-[#F75380]">{obj.title}</Link>
               </div>
             </div>
           </div>

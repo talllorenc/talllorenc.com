@@ -92,7 +92,7 @@ const Footer = () => {
           </a>
         </div>
         <p className="mt-2 text-center text-base text-gray-400">
-          &copy; 2023 talllorenc, made by talllorenc
+          &copy; 2024 talllorenc, made by talllorenc
         </p>
       
       </div>

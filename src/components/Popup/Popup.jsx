@@ -1,4 +1,3 @@
-// Popup.jsx
 import LoginForm from "@/components/Auth/LoginForm";
 import {useEffect} from "react";
 import {motion, AnimatePresence} from "framer-motion"
