@@ -3,7 +3,6 @@ import {useEffect} from "react";
 import {motion, AnimatePresence} from "framer-motion"
 
 const Popup = ({closePopup, isPopupOpen}) => {
-
     useEffect(() => {
         function handleEscapeKey(e) {
             if (e.key === 'Escape') {

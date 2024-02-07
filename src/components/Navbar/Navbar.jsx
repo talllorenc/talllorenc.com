@@ -1,12 +1,13 @@
 "use client";
 
 import Link from "next/link";
-import {usePathname} from "next/navigation";
+import { usePathname } from "next/navigation";
 import Image from "next/image";
-import React, {useState} from "react";
+import React, { useState } from "react";
 import Popup from "@/components/Popup/Popup";
 import MobileNavbar from "../MobileNavbar/MobileNavbar";
-import {useSession, signOut, signIn} from "next-auth/react";
+import { useDispatch, useSelector } from "react-redux";
+import { logout, selectIsAuth, selectUserData } from "@/redux/slices/auth";
 
 const links = [
   {
@@ -27,11 +28,12 @@ const links = [
 ];
 
 const Navbar = () => {
-  const {data: session} = useSession();
+  const dispatch = useDispatch();
+  const isAuth = useSelector(selectIsAuth);
+  const userData = useSelector(selectUserData);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isPopupOpen, setIsPopupOpen] = useState(false);
   const pathname = usePathname();
-
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -49,6 +51,13 @@ const Navbar = () => {
     setIsMenuOpen(false);
   };
 
+  const onClickLogout = () => {
+    if (window.confirm("Are you shure you want to logout")) {
+      dispatch(logout());
+      window.localStorage.removeItem("token");
+    }
+  };
+
   return (
     <nav className="fixed top-0 left-0 w-full p-4 backdrop-blur bg-black bg-opacity-50 z-50">
       <div className="flex justify-between items-center z-999">
@@ -64,7 +73,11 @@ const Navbar = () => {
               alt="Menu"
             />
           </button>
-          <MobileNavbar isMenuOpen={isMenuOpen} closeMenu={closeMenu} togglePopup={togglePopup}/>
+          <MobileNavbar
+            isMenuOpen={isMenuOpen}
+            closeMenu={closeMenu}
+            togglePopup={togglePopup}
+          />
         </div>
         <div className="hidden in:flex gap-[15px] items-center">
           <div className="flex gap-[20px] items-center">
@@ -92,14 +105,21 @@ const Navbar = () => {
               />
             </button>
 
-            {session && session.user ? (
+            {isAuth ? (
               <div className="flex gap-1 ml-auto items-center">
-                <p
-                  className="border-l-[2px] px-[10px] max-w-[100px] overflow-hidden whitespace-nowrap overflow-ellipsis">
-                  {session.user.name}
+                <p className="border-l-[2px] px-[10px] max-w-[100px] overflow-hidden whitespace-nowrap overflow-ellipsis">
+                  {userData.login}
                 </p>
-                <button onClick={() => signOut()} className="flex rounded hover:bg-red-600">
-                  <Image src="/navbar/logout.png" width={20} height={20} alt="logout icon"/>
+                <button
+                  onClick={onClickLogout}
+                  className="flex rounded hover:bg-red-600"
+                >
+                  <Image
+                    src="/navbar/logout.png"
+                    width={20}
+                    height={20}
+                    alt="logout icon"
+                  />
                 </button>
               </div>
             ) : (
@@ -108,11 +128,11 @@ const Navbar = () => {
                 className="bg-[#F75380] border-[2px] border-[#3c3b3b] rounded-lg py-1 px-2 font-bold transition-transform transform hover:translate-y-[-3px] focus:outline-none"
               >
                 Sign in
-              </button>)}
-
+              </button>
+            )}
           </div>
         </div>
-        <Popup closePopup={closePopup} isPopupOpen={isPopupOpen}/>
+        <Popup closePopup={closePopup} isPopupOpen={isPopupOpen} />
       </div>
     </nav>
   );

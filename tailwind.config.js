@@ -18,6 +18,9 @@ module.exports = {
         roboto: ['Roboto', 'sans'],
         source: ['Source Code Pro']
       },
+      boxShadow: {
+        '3xl': '0 35px 60px -15px white',
+      }
     },
   },
   plugins: [],

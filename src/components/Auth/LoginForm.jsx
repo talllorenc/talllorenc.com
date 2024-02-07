@@ -1,6 +1,8 @@
 "use client";
 
 import Link from "next/link";
+import {useDispatch, useSelector } from "react-redux";
+import { fetchUserData, selectIsAuth } from "@/redux/slices/auth";
 import * as yup from "yup";
 import { useFormik } from "formik";
 import SocialAuth from "@/components/SocialAuth/SocialAuth";
@@ -10,15 +12,10 @@ const basicSchema = yup.object().shape({
   password: yup.string().required("! Required field"),
 });
 
-const onSubmit = async (values) => {
-  try {
-
-  } catch (error) {
-    console.error("Ошибка:", error);
-  }
-};
 
 const LoginForm = ({ closePopup }) => {
+  const isAuth = useSelector(selectIsAuth);
+  const dispatch = useDispatch();
   const {
     values,
     handleChange,
@@ -33,7 +30,21 @@ const LoginForm = ({ closePopup }) => {
       password: "",
     },
     validationSchema: basicSchema,
-    onSubmit,
+    onSubmit: async (values) => {
+      try {
+        const data = await dispatch(fetchUserData(values));
+
+        if(!data.payload){
+          return;
+        }
+
+        if('token' in data.payload){
+          window.localStorage.setItem('token', data.payload.token)
+        }
+      } catch (error) {
+        console.error("Error:", error);
+      }
+    }, 
   });
 
   return (

@@ -16,7 +16,7 @@ const LicensePopup = ({ closePopup, isPopupOpen, activeLicense  }) => {
     <AnimatePresence>
       {isPopupOpen && (
         <motion.div
-          className="fixed p-2 top-0 left-0 w-full h-screen bg-black bg-opacity-70 flex justify-center items-center"
+          className="fixed p-2 top-0 left-0 w-full h-screen bg-black bg-opacity-70 flex justify-center items-center z-50"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
