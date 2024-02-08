@@ -49,18 +49,6 @@ const AdminPanel = () => {
               />
               Delete beat
             </button>
-            <button
-              className="px-4 py-2 hover:bg-[#4c4b4b] rounded-lg flex flex-col items-center gap-1 admin-panel-btn"
-              onClick={() => togglePopup("update")}
-            >
-              <Image
-                src="/adminPanel/update.png"
-                width={40}
-                height={40}
-                alt="update beat image"
-              />
-              Update beat
-            </button>
           </div>
         </div>
       </div>

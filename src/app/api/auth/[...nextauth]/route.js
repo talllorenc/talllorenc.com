@@ -1,6 +1,7 @@
 const { default: NextAuth } = require("next-auth/next");
 import GoogleProvider from "next-auth/providers/google";
 
+
 const handler = NextAuth({
   providers: [
     GoogleProvider({
@@ -25,8 +26,9 @@ const handler = NextAuth({
           },
           body: JSON.stringify({ token_id: session.id_token }),
         });
-  
+
         const user = await response.json();
+
         return user;
       } catch (error) {
         console.log(error);

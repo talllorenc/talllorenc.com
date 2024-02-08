@@ -3,7 +3,6 @@ import { useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import AddBeatForm from "./AddBeatForm";
 import DeleteBeatForm from "./DeleteBeatForm";
-import UpdateBeatForm from "./UpdateBeatForm";
 
 const AdminPanelPopup = ({ closePopup, isPopupOpen, popupType }) => {
   useEffect(() => {
@@ -46,7 +45,6 @@ const AdminPanelPopup = ({ closePopup, isPopupOpen, popupType }) => {
               <div className="">
                 {popupType === 'add' && <AddBeatForm/>}
                 {popupType === 'delete' && <DeleteBeatForm/>}
-                {popupType === 'update' && <UpdateBeatForm/>}
               </div>
             </motion.div>
           </motion.div>

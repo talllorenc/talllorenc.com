@@ -51,7 +51,7 @@ const links = [
 ];
 const Footer = () => {
   return (
-    <footer className="border-t-2 border-[#4c4b4b]">
+    <footer className="border-t-2 border-[#4c4b4b] mt-12">
       <div className="mx-auto max-w-7xl overflow-hidden py-6 px-4 sm:px-6 lg:px-8">
         <nav
           className="mx-5 -my-2 flex flex-wrap justify-center"

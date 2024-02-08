@@ -28,6 +28,34 @@ export const fetchUserData = createAsyncThunk(
   }
 );
 
+export const fetchUserRegister = createAsyncThunk(
+  "auth/fetchUserRegister",
+  async (credentials) => {
+    try {
+      const response = await fetch("http://localhost:8080/auth/register", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(credentials),
+      });
+
+      if (!response.ok) {
+        const errorData = await response.json();
+        console.error("Auth error:", errorData.message);
+        return;
+      }
+
+      const userData = await response.json();
+      console.log(userData);
+      return userData;
+    } catch (error) {
+      console.error("Error:", error);
+      throw error;
+    }
+  }
+);
+
 export const fetchAuthMe = createAsyncThunk(
   "auth/fetchAuthMe",
   async (token, { rejectWithValue }) => {
@@ -80,6 +108,18 @@ const authSlice = createSlice({
         state.status = "error";
         state.data = null;
       })
+      .addCase(fetchUserRegister.pending, (state) => {
+        state.status = "loading";
+        state.data = null;
+      })
+      .addCase(fetchUserRegister.fulfilled, (state, action) => {
+        state.status = "loaded";
+        state.data = action.payload;
+      })
+      .addCase(fetchUserRegister.rejected, (state) => {
+        state.status = "error";
+        state.data = null;
+      })
       .addCase(fetchAuthMe.pending, (state) => {
         state.status = "loading";
         state.data = null;
@@ -99,7 +139,7 @@ export const selectIsAuth = (state) => Boolean(state.auth.data);
 export const selectUserData = (state) => state.auth.data;
 export const selectUserRole = (state) => {
   const userData = state.auth.data;
-  return userData ? userData.role : 'user';
+  return userData ? userData.role : "user";
 };
 export const { logout } = authSlice.actions;
 export const authReducer = authSlice.reducer;

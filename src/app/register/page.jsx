@@ -3,7 +3,8 @@ import RegisterForm from "@/components/Auth/RegisterForm";
 
 const RegisterPage = () => {
   return (
-      <div className="flex flex-col justify-center items-center mt-24 p-4">
+    <div className="mt-12">
+      <div className="flex flex-col justify-center items-center  p-4 container">
         <span className="text-4xl font-bold">Registration</span>
         <span className="mt-8 mb-8 text-[#8c8b8b] text-center">
           Register to be able to add your tracks to the Records section. The
@@ -13,6 +14,8 @@ const RegisterPage = () => {
         </span>
         <RegisterForm />
       </div>
+    </div>
+
   );
 };
 
