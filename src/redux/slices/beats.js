@@ -17,6 +17,23 @@ export const fetchBeats = createAsyncThunk('beats/fetchBeats', async () => {
   }
 });
 
+export const fetchOneBeat = createAsyncThunk('beats/fetchOneBeat', async (beatId) => {
+  try {
+    const response = await fetch(`http://localhost:8080/beat/getOne/${beatId}`, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    console.error("Error:", error);
+    throw error;
+  }
+});
+
 const initialState = {
   beats: {
     items: [],
@@ -45,8 +62,21 @@ const beatSlice = createSlice({
       .addCase(fetchBeats.rejected, (state) => {
         state.beats.items = [];
         state.beats.status = 'error';
+      })
+      .addCase(fetchOneBeat.pending, (state) => {
+        state.beats.items = [];
+        state.beats.status = 'loading';
+      })
+      .addCase(fetchOneBeat.fulfilled, (state, action) => {
+        state.beats.items = action.payload;
+        state.beats.status = 'loaded';
+      })
+      .addCase(fetchOneBeat.rejected, (state) => {
+        state.beats.items = [];
+        state.beats.status = 'error';
       });
   },
 });
 
+export const selectOneBeat = (state) => state.beats.data;
 export const beatsReducer = beatSlice.reducer;

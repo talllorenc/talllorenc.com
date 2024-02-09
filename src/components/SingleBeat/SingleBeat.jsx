@@ -36,13 +36,7 @@ const SingleBeat = ({ params }) => {
         >
           <div className="max-w-[600px] flex flex-col mx-auto p-8 bg-[#0a0b0c] rounded-lg">
             <div className="flex flex-col border-b border-[#5c5b5b] items-center py-4">
-              <Image
-                src="/test2.jpeg"
-                alt="beat cover"
-                width={200}
-                height={200}
-                className="rounded-lg border border-[#2c2b2b]"
-              />
+            <img src={data.imageUrl} alt="beat cover" className="rounded-lg border border-[#2c2b2b] w-[200px]" />
               <p className="font-bold text-xl p-4">
                 {data.title}
               </p>

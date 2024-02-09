@@ -17,6 +17,7 @@ const Beats = () => {
     dispatch(fetchBeats());
   }, []);
 
+
   return (
     <div className="flex flex-wrap justify-around">
       {(isBeatsLoading ? [...Array(5)] : beats.items || []).map((obj, index) =>
@@ -27,7 +28,11 @@ const Beats = () => {
             key={obj._id}
             className="flex flex-col border border-[#151719] rounded-md w-1/5 p-4 hover:border-[#2c2b2b] hover:bg-[#3c3b3b]"
           >
-            <img src={obj.imageUrl} alt="beat cover" className="rounded-lg border border-[#2c2b2b] w-full" />
+            <img
+              src={obj.imageUrl}
+              alt="beat cover"
+              className="rounded-lg border border-[#2c2b2b] w-full"
+            />
             <div className="text-md mt-4">
               <div className="flex gap-2 items-center">
                 <span className="text-[#F75380] text-lg font-medium">

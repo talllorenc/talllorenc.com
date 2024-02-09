@@ -17,6 +17,7 @@ const AdminPanel = () => {
     setIsPopupOpen(false);
   };
 
+
   return (
     <div className="border-2 border-[#2c2b2b] p-4 shadow-inner">
       <div className="container flex flex-col">

@@ -8,6 +8,7 @@ import { useState } from "react";
 const AddBeatForm = () => {
   const inputFileRef = useRef(null);
   const [imageUrl, setImageUrl] = useState("");
+  const [audioUrl, setAudioUrl] = useState("");
   const [isLoading, setIsLoading] = useState(false);
 
   const {
@@ -25,6 +26,7 @@ const AddBeatForm = () => {
       price: "",
       tags: "",
       imageUrl: "",
+      audio: "",
     },
     onSubmit: async (values) => {
       try {
@@ -33,6 +35,7 @@ const AddBeatForm = () => {
         const formDataWithImageUrl = {
           ...values,
           imageUrl: imageUrl,
+          audio: audioUrl,
         };
 
         const response = await fetch("http://localhost:8080/beat/create", {
@@ -82,6 +85,31 @@ const AddBeatForm = () => {
     }
   };
 
+  const handleChangeAudioFile = async (event) => {
+    try {
+      const formData = new FormData();
+      const file = event.target.files[0];
+      formData.append("audio", file);
+
+      const response = await fetch("http://localhost:8080/beat/upload_audio", {
+        method: "POST",
+        body: formData,
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem("token")}`,
+        },
+      });
+
+      if (!response.ok) {
+        throw new Error("Failed to upload audio file");
+      }
+
+      const data = await response.json();
+      setAudioUrl(data.url);
+    } catch (error) {
+      console.error("Error:", error);
+    }
+  };
+console.log(audioUrl);
   return (
     <div>
       <p className="text-lg font-bold uppercase">Add Beat</p>
@@ -186,6 +214,17 @@ const AddBeatForm = () => {
             name="imageUrl"
             type="file"
             placeholder="ImageUrl"
+            className="focus:z-10 focus:border-[#F75380] focus:outline-none focus:ring-[#F75380] w-full border-2 border-[#8c8b8b] bg-black p-2 rounded-full"
+          />
+        </div>
+        <div className="relative w-full">
+          <input
+            onChange={handleChangeAudioFile}
+            ref={inputFileRef}
+            id="audio"
+            name="audio"
+            type="file"
+            placeholder="Audio File"
             className="focus:z-10 focus:border-[#F75380] focus:outline-none focus:ring-[#F75380] w-full border-2 border-[#8c8b8b] bg-black p-2 rounded-full"
           />
         </div>

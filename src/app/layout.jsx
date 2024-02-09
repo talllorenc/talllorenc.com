@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import "./globals.css";
 import { Montserrat } from "next/font/google";
@@ -23,13 +23,13 @@ export default function RootLayout({ children }) {
         <link rel="shortcut icon" href="/favicon/favicon.ico" />
       </head>
       <body className={`${montserrat.className}`}>
-      <Providers>
-        <Provider store={store}>
-          <Navbar />
-          {children}
-          <Footer />
-        </Provider>
-      </Providers>
+        <Providers>
+          <Provider store={store}>
+              <Navbar />
+              {children}
+              <Footer />
+          </Provider>
+        </Providers>
       </body>
     </html>
   );
